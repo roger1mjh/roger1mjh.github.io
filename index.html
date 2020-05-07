@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -69,7 +69,24 @@
           }
           );
       });
-
+      function speak_it(){
+        if(response!=undefined){
+        setTimeout(geniusVoice, 1000); 
+   }
+   else {
+       setTimeout(speak_it, 1000);
+   }
+}
+      function geniusVoice(){
+        let msg = new SpeechSynthesisUtterance();
+        msg.volume = 1;
+        msg.rate = 1;
+        msg.pitch = 1;
+        msg.text = response;
+        msg.voiceURI = "Alex";
+        msg.lang = "en-US";
+        speechSynthesis.speak(msg);
+      }
     </script>
   </head>
   <header>
@@ -87,7 +104,7 @@
     <div class="flexbox">
     <div class="search">
       <div>
-        <input type="text" name="name" id="name" placeholder="  It's a ..." required><input type="button" id="namesub" value=" ⏎ ">
+        <input type="text" name="name" id="name" placeholder="  It's a ..." required><input type="button" id="namesub" value=" ⏎ " onclick="speak_it(); ">
       </div>
     </div>
     </div>
