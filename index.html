@@ -1,112 +1,84 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="scripts.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript">
-      let response;
-      $(document).ready(function(){
-        $("#namesub").click(
-          function(){
-            let name_unformatted = $("#name").val();
-            let name = name_unformatted.replace(/ /g, "-").toLowerCase();
-            $.ajax({
-              url: "http://www.dnd5eapi.co/api/monsters/" +name,
-              dataType: 'json',
-              success: function(data) {
-              $('#monsters_name').html(name_unformatted);
-              if(data.challenge_rating<0.25){
-                response = c0;
-              }
-              if(data.challenge_rating>=0.125&&data.challenge_rating<3&&(data.alignment=="lawful good"||data.alignment=="neutral good"||data.alignment=="chaotic good"||data.alignment=="lawful neutral")){
-                response = c0125_g;
-              } else if(data.challenge_rating>=0.125&&data.challenge_rating<0.25){
-                response = c0125;
-              }else if(data.challenge_rating>=0.25&&data.challenge_rating<0.5){
-                response = c025;
-              }else if(data.challenge_rating>=0.5&&data.challenge_rating<1){
-                response = c05;
-              }else if(data.challenge_rating>=1&&data.challenge_rating<3){
-                response = c1;
-              }
-
-              if(data.challenge_rating>=3&&data.challenge_rating<6&&(data.alignment=="lawful good"||data.alignment=="neutral good"||data.alignment=="chaotic good"||data.alignment=="lawful neutral")){
-                response = c3_g;
-              }else if(data.challenge_rating>=3&&data.challenge_rating<6){
-                response = c3;
-              }
-
-              if(data.challenge_rating>=6&&data.challenge_rating<13&&(data.alignment=="lawful good"||data.alignment=="neutral good"||data.alignment=="chaotic good"||data.alignment=="lawful neutral")){
-                response = c6_g;
-              }else if(data.challenge_rating>=6&&data.challenge_rating<9){
-                response = c6;
-              }else if(data.challenge_rating>=9&&data.challenge_rating<13){
-                response = c9;
-              }
-
-              if(data.challenge_rating>=13&&data.challenge_rating<19&&(data.alignment=="lawful good"||data.alignment=="neutral good"||data.alignment=="chaotic good"||data.alignment=="lawful neutral")){
-                response = c13_g;
-              }else if(data.challenge_rating>=13&&data.challenge_rating<19){
-                response = c13;
-              }
-
-
-              if(data.challenge_rating>=19){
-                response = c19;
-              }
-              $('#response').html(response);
-              },
-              error: function() {
-              $('#response').html(response);
-              $('#monsters_name').html(name_unformatted);
-              response = er;
-              }
-            });
-          }
-          );
-      });
-      function speak_it(){
-        if(response!=undefined){
-        setTimeout(geniusVoice, 1000); 
-   }
-   else {
-       setTimeout(speak_it, 1000);
-   }
-}
-      function geniusVoice(){
-        let msg = new SpeechSynthesisUtterance();
-        msg.volume = 1;
-        msg.rate = 1;
-        msg.pitch = 1;
-        msg.text = response;
-        msg.voiceURI = "Alex";
-        msg.lang = "en-US";
-        speechSynthesis.speak(msg);
-      }
-    </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>perdere</title>
+    <style>
+    </style>
   </head>
-  <header>
-    <img src = "Dungeon Genius.png">
-  </header>
   <body>
-    <p id="open"> Hello, dear user. It's my pleasure to assist you in your adventure. Now, please tell me what did you encounter?</p>
-    <p class = "user" id="monsters_name"> </p>
-    <p id="response"></p>
-    <div class="imgholder">
-      <img src = "gif.gif">
+    <header>
+      <a href="/" class="logo">perdere</a>
+      <nav class="nav-left">
+        <a href="#box_ss20">SS20</a>
+        <a href="#box_pc">Permanent collection</a>
+        <a href="#">Misc.</a>
+        </nav>
+      <nav class="nav-right">
+        <a href="#">
+            search
+        </a>
+        <a href="#">
+            help
+        </a>
+        <a href="#">My account</a>
+        <div class="cart-icon">
+          <span class="count">0</span>
+        </div>
+    </header>
+    <div id="menu-icon">☰</div>
+      <div class="cover">
+    <slider>
+      <slide><p>perdere</p></slide>
+      <slide><p>perdere</p></slide>
+      <slide><p>perdere</p></slide>
+      <slide><p>perdere</p></slide>
+    </slider>
     </div>
-    <div class="box">
-    </div>
-    <div class="flexbox">
-    <div class="search">
-      <div>
-        <input type="text" name="name" id="name" placeholder="  It's a ..." required><input type="button" id="namesub" value=" ⏎ " onclick="speak_it(); ">
+    <div class="container">
+    <div class="part_box" id="box_ss20">
+        <img src="p2.jpg">
+        <div class="text_box">
+        <h1>Their Finest Hours</h1>
+        <p>  "...A state wide ban on plastic bags means grocery stores, food establishments and other New York businesses must stop using them from March 1, 2020 — and in New York City consumers will also be charged 5 cents for every paper bag they use." As a memoral, we bring back some of the most iconic products to evoke the old desire of these timeless designs.</p>
       </div>
     </div>
+    <div class="ss20">
+      <figure>
+        <img src="ss20_1.jpg">
+        <figcaption>#name of product</figcaption>
+      </figure>
+      <figure>
+        <img src="ss20_2.jpg">
+        <figcaption>#name of product</figcaption>
+      </figure>
+      <figure>
+        <img src="ss20_3.jpg">
+        <figcaption>#name of product</figcaption>
+      </figure>
     </div>
+    <div class="part_box" id="box_pc">
+        <img src="p3.jpg">
+        <div class="text_box">
+        <h1>Shop The Classics</h1>
+        <p>  “To live fully, we must learn to use things and love people, and not love things and use people.” Life is dull enough. A slight difference can improve uncertainty beyond expectation. Shop our permanent collections to add more colors and tastes to your grocery.</p>
+      </div>
+    </div>
+    <div class="permanent_collections">
+      <figure>
+        <img src="pc_1.jpg">
+        <figcaption>#name of product</figcaption>
+      </figure>
+      <figure>
+        <img src="pc_2.jpg">
+        <figcaption>#name of product</figcaption>
+      </figure>
+      <figure>
+        <img src="pc_3.jpg">
+        <figcaption>#name of product</figcaption>
+      </figure>
+    </div>
+  </div>
   </body>
 </html>
